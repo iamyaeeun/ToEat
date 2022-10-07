@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "89808450117",
+    "project_id": "toeat-a28ad",
+    "storage_bucket": "toeat-a28ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:89808450117:android:5fd6a0e5ce478fd33fa92c",
+        "android_client_info": {
+          "package_name": "edu.sungshin.toeat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "89808450117-v3p8jmktamp38teu5dmb1h9gslibnokb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4agwOCqH1_PeV7SLk1bXygIYyzLDgMdw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "89808450117-v3p8jmktamp38teu5dmb1h9gslibnokb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
