@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //로그아웃 하기
                 mFirebaseAuth.signOut();
-
                 Intent intent=new Intent(MainActivity.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
