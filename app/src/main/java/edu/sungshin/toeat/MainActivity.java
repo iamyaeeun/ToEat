@@ -11,11 +11,21 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth;
+    private Button btn_moveto1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        btn_moveto1 = findViewById(R.id.btn_moveto1);
+        btn_moveto1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this , home_activity_01.class);
+                startActivity(intent);//** 액티비티 이동
+            }
+        });
 
         mFirebaseAuth=FirebaseAuth.getInstance();
 
@@ -33,3 +43,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
+
+
