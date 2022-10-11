@@ -17,6 +17,12 @@ public class MainActivity extends AppCompatActivity {
     MainFragment mainFragment;
     SnsFragment snsFragment;
     MypageFragment mypageFragment;
+    langjango01Fragement langjango01Fragement;
+    langjango02Fragement langjango02Fragement;
+    langjango03Fragement langjango03Fragement;
+    langjango04Fragement langjango04Fragement;
+    langjango05Fragement langjango05Fragement;
+    langjango06Fragement langjango06Fragement;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
         mainFragment=new MainFragment();
         snsFragment=new SnsFragment();
         mypageFragment=new MypageFragment();
+        langjango01Fragement=new langjango01Fragement();
+        langjango02Fragement=new langjango02Fragement();
+        langjango03Fragement=new langjango03Fragement();
+        langjango04Fragement=new langjango04Fragement();
+        langjango05Fragement=new langjango05Fragement();
+        langjango06Fragement=new langjango06Fragement();
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -63,8 +75,11 @@ public class MainActivity extends AppCompatActivity {
         */
     }
     public void onFragmentChanged(int index){
-        if(index==0) getSupportFragmentManager().beginTransaction().replace(R.id.container,mainFragment).commit();
-        else if(index==1) getSupportFragmentManager().beginTransaction().replace(R.id.container,snsFragment).commit();
-        else if(index==2) getSupportFragmentManager().beginTransaction().replace(R.id.container,mypageFragment).commit();
+        if(index==0) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango01Fragement).commit();
+        else if(index==1) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango02Fragement).commit();
+        else if(index==2) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango03Fragement).commit();
+        else if(index==3) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango04Fragement).commit();
+        else if(index==4) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango05Fragement).commit();
+        else if(index==5) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango06Fragement).commit();
     }
 }
