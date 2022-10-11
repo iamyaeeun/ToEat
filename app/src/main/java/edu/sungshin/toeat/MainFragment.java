@@ -16,24 +16,67 @@ public class MainFragment extends Fragment {
     Button langjango05;
     Button langjango06;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView=(ViewGroup) inflater.inflate(R.layout.fragment_main, container, false);
-        langjango01=rootView.findViewById(R.id.button1);
-        langjango02=rootView.findViewById(R.id.button2);
-        langjango03=rootView.findViewById(R.id.button3);
-        langjango04=rootView.findViewById(R.id.button4);
-        langjango05=rootView.findViewById(R.id.button5);
-        langjango06=rootView.findViewById(R.id.button6);
+        Button langjango01=rootView.findViewById(R.id.langjango01);
+        Button langjango02=rootView.findViewById(R.id.langjango02);
+        Button langjango03=rootView.findViewById(R.id.langjango03);
+        Button langjango04=rootView.findViewById(R.id.langjango04);
+        Button langjango05=rootView.findViewById(R.id.langjango05);
+        Button langjango06=rootView.findViewById(R.id.langjango06);
 
         langjango01.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-                MainActivity activity=(MainActivity) getActivity();
+                MainActivity activity = (MainActivity) getActivity();
                 activity.onFragmentChanged(0);
             }
         });
+
+        langjango02.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity activity = (MainActivity) getActivity();
+                activity.onFragmentChanged(1);
+            }
+        });
+
+        langjango03.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity activity = (MainActivity) getActivity();
+                activity.onFragmentChanged(2);
+            }
+        });
+
+        langjango04.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity activity = (MainActivity) getActivity();
+                activity.onFragmentChanged(3);
+            }
+        });
+
+        langjango05.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity activity = (MainActivity) getActivity();
+                activity.onFragmentChanged(4);
+            }
+        });
+
+        langjango06.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity activity = (MainActivity) getActivity();
+                activity.onFragmentChanged(5);
+            }
+        });
+
+
+
         return rootView;
     }
 }

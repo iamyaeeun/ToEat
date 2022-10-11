@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainFragment">
 
     <FrameLayout
@@ -19,49 +19,68 @@
         app:layout_constraintVertical_bias="0.0">
 
         <Button
-            android:id="@+id/button1"
-            android:layout_width="138dp"
-            android:layout_height="150dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="50dp"
-            android:text="Button" />
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="138dp"
-            android:layout_height="150dp"
-            android:layout_marginStart="200dp"
-            android:layout_marginTop="50dp"
-            android:text="Button" />
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="138dp"
-            android:layout_height="150dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="200dp"
-            android:text="Button" />
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="138dp"
-            android:layout_height="150dp"
-            android:layout_marginStart="200dp"
-            android:layout_marginTop="200dp"
-            android:text="Button" />
+            android:id="@+id/langjango01"
+            android:layout_width="125dp"
+            android:layout_height="148dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/toeatmainicon"
+            android:text="냉장고 01" />
 
         <Button
-            android:id="@+id/button5"
-            android:layout_width="138dp"
-            android:layout_height="150dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="350dp"
-            android:text="Button" />
+            android:id="@+id/langjango02"
+            android:layout_width="125dp"
+            android:layout_height="148dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/toeatmainicon"
+            android:text="냉장고 02" />
 
         <Button
-            android:id="@+id/button6"
-            android:layout_width="138dp"
-            android:layout_height="150dp"
-            android:layout_marginStart="200dp"
-            android:layout_marginTop="350dp"
-            android:text="Button" />
+            android:id="@+id/langjango03"
+            android:layout_width="125dp"
+            android:layout_height="148dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="215dp"
+            android:background="@drawable/toeatmainicon"
+            android:text="냉장고 03" />
+
+
+        <Button
+            android:id="@+id/langjango04"
+            android:layout_width="125dp"
+            android:layout_height="148dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="215dp"
+            android:background="@drawable/toeatmainicon"
+            android:text="냉장고 04" />
+
+        <Button
+            android:id="@+id/langjango05"
+            android:layout_width="125dp"
+            android:layout_height="148dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="415dp"
+            android:background="@drawable/toeatmainicon"
+            android:text="냉장고 05" />
+
+        <Button
+            android:id="@+id/langjango06"
+            android:layout_width="125dp"
+            android:layout_height="148dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="415dp"
+            android:background="@drawable/toeatmainicon"
+            android:text="냉장고 06" />
+
+
+        <Button
+            android:id="@+id/plusbutton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="300dp"
+            android:layout_marginTop="600dp"
+            android:background="@drawable/plusbutton" />
 
 
     </FrameLayout>
