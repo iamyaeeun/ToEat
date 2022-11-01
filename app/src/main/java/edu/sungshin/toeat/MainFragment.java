@@ -16,16 +16,15 @@ public class MainFragment extends Fragment {
     Button langjango05;
     Button langjango06;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView=(ViewGroup) inflater.inflate(R.layout.fragment_main, container, false);
-        Button langjango01=rootView.findViewById(R.id.langjango01);
-        Button langjango02=rootView.findViewById(R.id.langjango02);
-        Button langjango03=rootView.findViewById(R.id.langjango03);
-        Button langjango04=rootView.findViewById(R.id.langjango04);
-        Button langjango05=rootView.findViewById(R.id.langjango05);
-        Button langjango06=rootView.findViewById(R.id.langjango06);
+        langjango01=rootView.findViewById(R.id.langjango01);
+        langjango02=rootView.findViewById(R.id.langjango02);
+        langjango03=rootView.findViewById(R.id.langjango03);
+        langjango04=rootView.findViewById(R.id.langjango04);
+        langjango05=rootView.findViewById(R.id.langjango05);
+        langjango06=rootView.findViewById(R.id.langjango06);
 
         langjango01.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,8 +73,6 @@ public class MainFragment extends Fragment {
                 activity.onFragmentChanged(5);
             }
         });
-
-
 
         return rootView;
     }
