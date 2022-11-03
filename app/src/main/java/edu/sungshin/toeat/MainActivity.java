@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
     langjango05Fragement langjango05Fragement;
     langjango06Fragement langjango06Fragement;
 
+    langdongo01Fragment langdongo01Fragment;
+
+    gotofragment01 gotofragment01;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
         langjango04Fragement=new langjango04Fragement();
         langjango05Fragement=new langjango05Fragement();
         langjango06Fragement=new langjango06Fragement();
+
+        langdongo01Fragment=new langdongo01Fragment();
+
+        gotofragment01=new gotofragment01();
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -66,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void onFragmentChanged(int index){
-        if(index==0) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango01Fragment).commit();
+        if(index==0) getSupportFragmentManager().beginTransaction().replace(R.id.container, gotofragment01).commit();
         else if(index==1) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango02Fragement).commit();
         else if(index==2) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango03Fragement).commit();
         else if(index==3) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango04Fragement).commit();
@@ -74,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
         else if(index==5) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango06Fragement).commit();
 
         else if(index==6) getSupportFragmentManager().beginTransaction().replace(R.id.container,mainFragment).commit();
+        else if(index==7) getSupportFragmentManager().beginTransaction().replace(R.id.container,langdongo01Fragment).commit();
+        else if(index==8) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango01Fragment).commit();
     }
 
     public void startAlarm(Calendar c, String foodName){
