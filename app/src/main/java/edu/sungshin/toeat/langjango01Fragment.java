@@ -36,6 +36,7 @@ public class langjango01Fragment extends Fragment{
     CalendarView calendarView;
     int year,month,day;
     int selected;
+    int x;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView=(ViewGroup) inflater.inflate(R.layout.fragment_langjango01_fragement, container, false);
@@ -47,9 +48,9 @@ public class langjango01Fragment extends Fragment{
         recyclerView.setLayoutManager(layoutManager);
 
         FoodAdapter adapter=new FoodAdapter();
-        adapter.addItem(new Food("감자","2022년10월29일","2","마트","베란다 보관"));
-        adapter.addItem(new Food("감자","2022년10월29일","2","마트","베란다 보관"));
-        adapter.addItem(new Food("감자","2022년10월29일","2","마트","베란다 보관"));
+        adapter.addItem(new Food("1","감자","2022년10월29일","2","마트","베란다 보관"));
+        adapter.addItem(new Food("1","감자","2022년10월29일","2","마트","베란다 보관"));
+        adapter.addItem(new Food("1","감자","2022년10월29일","2","마트","베란다 보관"));
         recyclerView.setAdapter(adapter);
         
 
@@ -113,6 +114,8 @@ public class langjango01Fragment extends Fragment{
                                 }
                             });
 
+
+
                             btnSubtract.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
@@ -132,9 +135,14 @@ public class langjango01Fragment extends Fragment{
                             dlg.setView(diaLogView);
 
                             dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+
+                                String no;
+
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    adapter.addItem(new Food(foodName.getText().toString(),setDate.getText().toString(),count.getText().toString(),market.getText().toString(),memo.getText().toString()));
+                                    x++;
+                                    no=String.valueOf(x);
+                                    adapter.addItem(new Food(no, foodName.getText().toString(),setDate.getText().toString(),count.getText().toString(),market.getText().toString(),memo.getText().toString()));
                                     recyclerView.setAdapter(adapter);
                                 }
                             });
