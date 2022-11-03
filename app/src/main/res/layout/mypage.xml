@@ -35,12 +35,12 @@
             android:layout_height="match_parent"
             android:orientation="vertical" >
         <TextView
-            android:id="@+id/idid"
+            android:id="@+id/userid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="toeat"
+            android:text="idid"
             android:textSize="30dp" />
             <TextView
                 android:id="@+id/name"
@@ -63,38 +63,83 @@
             android:layout_marginTop="20dp"
             android:text="내 글 모아보기"
             android:textSize="30dp" />
-        <TextView
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_one"/>
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_two"/>
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_one"/>
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_two"/>
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_one"/>
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_two"/>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+        <Button
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:text="스크랩 모아보기"
-            android:textSize="30dp" />
-        <TextView
+            android:textSize="30dp"
+            android:background="#FFFFFF"/>
+        <Button
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:text="내 댓글 모아보기"
-            android:textSize="30dp" />
-        <TextView
+            android:textSize="30dp"
+            android:background="#FFFFFF"/>
+        <Button
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:text="환경설정"
-            android:textSize="30dp" />
-        <TextView
+            android:textSize="30dp"
+            android:background="#FFFFFF"/>
+        <Button
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:text="회원 탈퇴"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:background="#FFFFFF"/>
 
 
     </LinearLayout>
