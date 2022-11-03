@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".gotofragment01">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="82dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="30dp"
+        android:text="냉장고 1 "
+        android:textSize="40dp"
+        android:textColor="@color/material_dynamic_neutral_variant50"/>
+
+    <Button
+        android:id="@+id/button01"
+        android:layout_width="318dp"
+        android:layout_height="152dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="175dp"
+        android:background="#FFC45C"
+        android:text="냉동고"
+        android:textSize="50dp"/>
+
+    <Button
+        android:id="@+id/button02"
+        android:layout_width="318dp"
+        android:layout_height="152dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="400dp"
+        android:background="#FFC45C"
+        android:text="냉동고"
+        android:textSize="50dp" />
+
+</FrameLayout>

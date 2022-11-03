@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     langdongo01Fragment langdongo01Fragment;
 
-    gotofragment01 gotofragment01;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
         langdongo01Fragment=new langdongo01Fragment();
 
-        gotofragment01=new gotofragment01();
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -73,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void onFragmentChanged(int index){
-        if(index==0) getSupportFragmentManager().beginTransaction().replace(R.id.container, gotofragment01).commit();
+        if(index==0) getSupportFragmentManager().beginTransaction().replace(R.id.container, langjango01Fragment).commit();
         else if(index==1) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango02Fragement).commit();
         else if(index==2) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango03Fragement).commit();
         else if(index==3) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango04Fragement).commit();
