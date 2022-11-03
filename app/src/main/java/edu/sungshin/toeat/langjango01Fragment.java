@@ -51,6 +51,7 @@ public class langjango01Fragment extends Fragment{
         adapter.addItem(new Food("감자","2022년10월29일","2","마트","베란다 보관"));
         adapter.addItem(new Food("감자","2022년10월29일","2","마트","베란다 보관"));
         recyclerView.setAdapter(adapter);
+        
 
 
         foodAdd.setOnClickListener(new View.OnClickListener() {
