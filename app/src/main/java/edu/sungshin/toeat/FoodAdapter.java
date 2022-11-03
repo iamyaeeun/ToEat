@@ -19,9 +19,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     public void addItem(Food item){
         items.add(item);
     }
-    public void setItems(ArrayList<Food> items){
-        this.items=items;
-    }
+    public void setItems(ArrayList<Food> items){ this.items=items; }
     public Food getItem(int position){
         return items.get(position);
     }
