@@ -82,6 +82,7 @@ public class UserAdapter {
         mDb.delete("FoodDB","foodName=?",new String[]{String.valueOf(foodName)});  //사용자 DB에 사용자값 delete
 
         ArrayList<Food> foodList= getTableData();
+
     }
 
     public ArrayList<Food> getTableData(){

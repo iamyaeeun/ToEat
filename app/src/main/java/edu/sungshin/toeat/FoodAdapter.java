@@ -2,6 +2,7 @@ package edu.sungshin.toeat;
 
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,9 +46,22 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Food item=items.get(position);
         holder.setItem(item);
+        holder.foodDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Food item=items.get(position);
+                items.remove(item);
+                notifyItemRemoved(position);
+
+                UserAdapter mDbHelper=new UserAdapter(view.getContext());
+                mDbHelper.createDatabase();
+                mDbHelper.open();
+                mDbHelper.delete(item.getName());
+            }
+        });
     }
 
     @Override
@@ -99,7 +113,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
                     dlg.show();
                 }
             });
-
+            /*
             foodDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -107,9 +121,9 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
                     mDbHelper.createDatabase();
                     mDbHelper.open();
                     mDbHelper.delete(textView.getText().toString());
-                    //notifyDataSetChanged
                 }
             });
+            */
         }
 
         public void setItem(Food item){
@@ -119,5 +133,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
             textView4.setText(item.getMarket());
             textView5.setText(item.getMemo());
         }
+
+
     }
 }
