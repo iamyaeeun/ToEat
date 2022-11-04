@@ -3,7 +3,6 @@
     <style name="Theme.ToEat" parent="Theme.AppCompat.Light">
         <!-- Primary brand color. -->
         <item name="windowNoTitle">true</item>
-        출처: https://silversound-coding.tistory.com/10 [개냠의 개발일지:티스토리]
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
