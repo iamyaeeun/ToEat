@@ -15,7 +15,7 @@
         android:layout_marginTop="332dp"
         android:layout_marginBottom="78dp"
         android:ems="10"
-        android:hint="이메일을 입력하세요"
+        android:hint="G메일을 입력하세요"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/btn_login"
         app:layout_constraintEnd_toEndOf="parent"

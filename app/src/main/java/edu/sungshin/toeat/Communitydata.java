@@ -1,27 +1,26 @@
 package edu.sungshin.toeat;
 
-public class Communitydata {
-    String Nickname;
-    String Content;
+public class Communitydata{
+    String nickname;
+    String content;
 
-    public Communitydata(String nickname, String content) {
-        Nickname = nickname;
-        Content = content;
+    public Communitydata(String name, String contents) {
+        this.nickname = name;
+        this.content = contents;
     }
 
     public String getNickname() {
-        return Nickname;
+        return nickname;
     }
-
-    public void setNickname(String nickname) {
-        Nickname = nickname;
+    public void setNickname(String name) {
+        nickname = name;
     }
-
     public String getContent() {
-        return Content;
+        return content;
+    }
+    public void setContent(String contents) {
+        content = contents;
     }
 
-    public void setContent(String content) {
-        Content = content;
-    }
 }
+
