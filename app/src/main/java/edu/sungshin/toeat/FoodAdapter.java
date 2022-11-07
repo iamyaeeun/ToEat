@@ -25,16 +25,10 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
 
     public FoodAdapter(ArrayList<Food> foodList){ items=foodList;}//생성자:전달한 FoodList 받아 items리스트에 대입
 
-    public void addItem(Food item){
-        items.add(item);
-    }
+    public void addItem(Food item){ items.add(item); }
     public void setItems(ArrayList<Food> items){ this.items=items; }
-    public Food getItem(int position){
-        return items.get(position);
-    }
-    public void setItem(int position, Food item){
-        items.set(position,item);
-    }
+    public Food getItem(int position){ return items.get(position); }
+    public void setItem(int position, Food item){ items.set(position,item); }
 
     @NonNull
     @Override
@@ -55,6 +49,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
                 Food item=items.get(position);
                 items.remove(item);
                 notifyItemRemoved(position);
+                notifyItemRangeChanged(position,items.size());
 
                 UserAdapter mDbHelper=new UserAdapter(view.getContext());
                 mDbHelper.createDatabase();
@@ -65,9 +60,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     }
 
     @Override
-    public int getItemCount() {
-        return items.size();
-    }
+    public int getItemCount() { return items.size(); }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imageView;
@@ -113,17 +106,6 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
                     dlg.show();
                 }
             });
-            /*
-            foodDelete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    UserAdapter mDbHelper=new UserAdapter(foodDelete.getContext());
-                    mDbHelper.createDatabase();
-                    mDbHelper.open();
-                    mDbHelper.delete(textView.getText().toString());
-                }
-            });
-            */
         }
 
         public void setItem(Food item){
@@ -133,7 +115,5 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
             textView4.setText(item.getMarket());
             textView5.setText(item.getMemo());
         }
-
-
     }
 }

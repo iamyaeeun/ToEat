@@ -25,7 +25,7 @@ import java.util.Calendar;
 public class langjango01Fragment extends Fragment{
     View diaLogView,diaLogView2;
     EditText foodName,count,market,memo;
-    Button setDate,foodDelete,back;
+    Button setDate,back;
     FloatingActionButton btnSubtract,btnAdd,foodAdd;
     CalendarView calendarView;
     int year,month,day;
