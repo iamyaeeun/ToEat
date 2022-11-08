@@ -8,6 +8,11 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,7 +22,7 @@ public class UserAdapter {
     private Context mContext;
     private SQLiteDatabase mDb;
     private UserDBActivityHelper mDbHelper;
-    private String tableName="FoodData";
+    private String tableName="FoodDB";
 
     public UserAdapter(Context context)   //다른 클래스에서 Activity를 Context를 활용해 호출
     {
@@ -60,7 +65,7 @@ public class UserAdapter {
         mDbHelper.close();
     }   //DB가 닫히도록 하는 코드
 
-    public void insert(int no,String foodName,String expirationDate, int amount, String market, String memo){  //Insert
+    public void insert(String no,String foodName,String expirationDate, String amount, String market, String memo){  //Insert
         mDb=mDbHelper.getWritableDatabase();
         ContentValues value=new ContentValues();
         value.put("no",no);
@@ -69,18 +74,21 @@ public class UserAdapter {
         value.put("amount",amount);
         value.put("market",market);
         value.put("memo",memo);
-        mDb.insert("FoodData",null,value);  //사용자 DB에 사용자값 insert
+        mDb.insert("FoodDB",null,value);  //사용자 DB에 사용자값 insert
     }
 
-    public void delete(int no){
+    public void delete(String foodName){
         mDb=mDbHelper.getWritableDatabase();
-        mDb.delete("FoodData","no=?",new String[]{String.valueOf(no)});  //사용자 DB에 사용자값 delete
+        mDb.delete("FoodDB","foodName=?",new String[]{String.valueOf(foodName)});  //사용자 DB에 사용자값 delete
+
+        ArrayList<Food> foodList= getTableData();
+
     }
 
-    public List getTableData(){
+    public ArrayList<Food> getTableData(){
         try{
             String sql="SELECT * FROM "+tableName;  //table 이름을 통해 사용자DB 불러옴
-            List userList=new ArrayList();  //모델을 넣을 리스트 생성
+            ArrayList<Food> userList=new ArrayList<Food>();  //모델을 넣을 리스트 생성
             Food user=null;  //모델 선언
             Cursor mCur=mDb.rawQuery(sql,null);
             if(mCur!=null){

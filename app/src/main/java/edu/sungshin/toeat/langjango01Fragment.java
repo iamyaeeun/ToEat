@@ -1,58 +1,58 @@
 package edu.sungshin.toeat;
 
-import android.app.AlarmManager;
-import android.app.DatePickerDialog;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
-import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class langjango01Fragment extends Fragment{
     View diaLogView,diaLogView2;
     EditText foodName,count,market,memo;
-    Button setDate;
-    FloatingActionButton btnSubtract,btnAdd;
+    Button setDate,back;
+    FloatingActionButton btnSubtract,btnAdd,foodAdd;
     CalendarView calendarView;
     int year,month,day;
     int selected;
     int x;
+    ArrayList<Food> foodList;
+    String no;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView=(ViewGroup) inflater.inflate(R.layout.fragment_langjango01_fragement, container, false);
         RecyclerView recyclerView=rootView.findViewById(R.id.recyclerView);
-        FloatingActionButton foodAdd=rootView.findViewById(R.id.foodAddButton);
-        Button back=rootView.findViewById(R.id.back);
+        foodAdd=rootView.findViewById(R.id.foodAddButton);
+        back=rootView.findViewById(R.id.back);
+        foodList=new ArrayList<Food>();
 
+        //DB
+        UserAdapter userAdapter=new UserAdapter(getActivity().getApplicationContext());
+        userAdapter.createDatabase();
+        userAdapter.open();
+        foodList=userAdapter.getTableData();
+
+        //Adapter
         LinearLayoutManager layoutManager=new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
-
-        FoodAdapter adapter=new FoodAdapter();
-        adapter.addItem(new Food("1","감자","2022년10월29일","2","마트","베란다 보관"));
-        adapter.addItem(new Food("1","감자","2022년10월29일","2","마트","베란다 보관"));
-        adapter.addItem(new Food("1","감자","2022년10월29일","2","마트","베란다 보관"));
+        FoodAdapter adapter=new FoodAdapter(foodList);
         recyclerView.setAdapter(adapter);
-
 
         foodAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +101,7 @@ public class langjango01Fragment extends Fragment{
                                             c.set(Calendar.YEAR,year);
                                             c.set(Calendar.MONTH,month);
                                             c.set(Calendar.DAY_OF_MONTH,day);
-                                            setDate.setText(String.valueOf(year)+String.valueOf(month+1)+String.valueOf(day));
+                                            setDate.setText(String.valueOf(year)+"년"+String.valueOf(month+1)+"월"+String.valueOf(day)+"일");
 
                                             MainActivity activity=(MainActivity) getActivity();
                                             activity.startAlarm(c,foodName.getText().toString());
@@ -112,8 +112,6 @@ public class langjango01Fragment extends Fragment{
                                     dlg2.show();
                                 }
                             });
-
-
 
                             btnSubtract.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -134,14 +132,15 @@ public class langjango01Fragment extends Fragment{
                             dlg.setView(diaLogView);
 
                             dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-
-                                String no;
-
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     x++;
                                     no=String.valueOf(x);
-                                    adapter.addItem(new Food(no, foodName.getText().toString(),setDate.getText().toString(),count.getText().toString(),market.getText().toString(),memo.getText().toString()));
+
+                                    //adapter.addItem(new Food(no,foodName.getText().toString(),setDate.getText().toString(),count.getText().toString(),market.getText().toString(),memo.getText().toString()));
+                                    userAdapter.insert(no,foodName.getText().toString(),setDate.getText().toString(),count.getText().toString(),market.getText().toString(),memo.getText().toString());
+                                    foodList= userAdapter.getTableData();
+                                    FoodAdapter adapter=new FoodAdapter(foodList);//FoodAdapter에 foodList전달
                                     recyclerView.setAdapter(adapter);
                                 }
                             });
