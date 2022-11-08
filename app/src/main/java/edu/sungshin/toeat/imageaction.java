@@ -6,6 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import java.io.*;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.widget.Toast;
+
+import java.io.InputStreamReader;
 
 
 public class imageaction extends AppCompatActivity {
