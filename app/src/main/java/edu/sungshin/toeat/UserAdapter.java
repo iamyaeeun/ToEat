@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.widget.EditText;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.List;
 
 public class UserAdapter {
     private Context mContext;
-    private SQLiteDatabase mDb;
+    private static SQLiteDatabase mDb;
     private UserDBActivityHelper mDbHelper;
     private String tableName="FoodData";
 
@@ -75,6 +76,10 @@ public class UserAdapter {
     public void delete(int no){
         mDb=mDbHelper.getWritableDatabase();
         mDb.delete("FoodData","no=?",new String[]{String.valueOf(no)});  //사용자 DB에 사용자값 delete
+    }
+
+    public static void update(EditText foodName, EditText expiration, EditText num, EditText market, EditText memo) {
+        mDb.execSQL("UPDATE myTable SET foodName="+foodName+"expirationDate="+expiration+"amount="+num+"market="+market+"memo="+memo);
     }
 
     public List getTableData(){
