@@ -41,7 +41,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Food item=items.get(position);
         holder.setItem(item);
         holder.foodDelete.setOnClickListener(new View.OnClickListener() {
