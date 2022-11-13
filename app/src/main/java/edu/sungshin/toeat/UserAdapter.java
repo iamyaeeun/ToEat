@@ -74,19 +74,19 @@ public class UserAdapter {
         value.put("amount",amount);
         value.put("market",market);
         value.put("memo",memo);
-        mDb.insert("FoodData",null,value);  //사용자 DB에 사용자값 insert
+        mDb.insert("FoodDB",null,value);  //사용자 DB에 사용자값 insert
     }
 
-    public void delete(int no){
+    public void delete(String foodName){
         mDb=mDbHelper.getWritableDatabase();
-        mDb.delete("FoodData","no=?",new String[]{String.valueOf(no)});  //사용자 DB에 사용자값 delete
+        mDb.delete("FoodDB","foodName=?",new String[]{String.valueOf(foodName)});  //사용자 DB에 사용자값 delete
 
         ArrayList<Food> foodList= getTableData();
 
     }
 
     public static void update(EditText foodName, EditText expiration, EditText num, EditText market, EditText memo) {
-        mDb.execSQL("UPDATE myTable SET foodName="+foodName+"expirationDate="+expiration+"amount="+num+"market="+market+"memo="+memo);
+        mDb.execSQL("UPDATE FoodDB SET foodName="+foodName+"expirationDate="+expiration+"amount="+num+"market="+market+"memo="+memo);
     }
 
     public ArrayList getTableData(){
