@@ -27,17 +27,16 @@ import java.util.ArrayList;
 
 public class SnsFragment extends Fragment {
     FloatingActionButton postAdd;
-    FirebaseFirestore db;
     ArrayList<Communitydata> comList;
+    FirebaseFirestore db;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_sns, container, false);
         postAdd = rootView.findViewById(R.id.foodAddButton);
-        comList = new ArrayList<>();
-        db = FirebaseFirestore.getInstance();
 
-        //db.collection: comList에 객체가 add 되지 않음,수정 필요
+        comList=new ArrayList<>();
+        db = FirebaseFirestore.getInstance();
         db.collection("posts")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -45,29 +44,37 @@ public class SnsFragment extends Fragment {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                //Log.d("TAG", document.getId() + " => " + document.getData());
+                                Log.d("TAG", document.getId() + " => " + document.getData());
                                 comList.add(new Communitydata(
                                         document.getData().get("nickname").toString(),
                                         document.getData().get("content").toString()));
                             }
+                            //Adapter
+                            LinearLayoutManager layoutManager=new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+                            RecyclerView recyclerView=rootView.findViewById(R.id.recyclerView);
+                            recyclerView.setLayoutManager(layoutManager);
+                            CommunityAdapter adapter=new CommunityAdapter(comList);
+                            recyclerView.setAdapter(adapter);
                         } else {
-                            //Log.d(TAG, "Error getting documents: ", task.getException());
+                            Log.d("MyTag", "Error getting documents: ", task.getException());
                         }
                     }
                 });
 
-        comList.add(new Communitydata("강민서 님의 toeat", "내용 작성"));
-        comList.add(new Communitydata("권지민 님의 toeat", "내용 작성"));
-        comList.add(new Communitydata("서유진 님의 toeat", "내용 작성"));
-        comList.add(new Communitydata("윤선미 님의 toeat", "내용 작성"));
-        comList.add(new Communitydata("허예은 님의 toeat", "내용 작성"));
+        //comList.add(new Communitydata("강민서 님의 toeat", "내용 작성"));
+        //comList.add(new Communitydata("권지민 님의 toeat", "내용 작성"));
+        //comList.add(new Communitydata("서유진 님의 toeat", "내용 작성"));
+        //comList.add(new Communitydata("윤선미 님의 toeat", "내용 작성"));
+        //comList.add(new Communitydata("허예은 님의 toeat", "내용 작성"));
 
         //Adapter
+        /*
         LinearLayoutManager layoutManager=new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         RecyclerView recyclerView=rootView.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(layoutManager);
         CommunityAdapter adapter=new CommunityAdapter(comList);
         recyclerView.setAdapter(adapter);
+         */
 
         postAdd.setOnClickListener(new View.OnClickListener() {
             @Override

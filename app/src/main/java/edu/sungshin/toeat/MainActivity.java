@@ -13,13 +13,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
-    private FirebaseAuth mFirebaseAuth;
     MainFragment mainFragment;
     SnsFragment snsFragment;
     MypageFragment mypageFragment;
@@ -66,7 +72,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+        if(user==null){
+            Intent intent=new Intent(MainActivity.this,LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
+
     public void onFragmentChanged(int index){
         if(index==0) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango01Fragment).commit();
         else if(index==1) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango02Fragement).commit();

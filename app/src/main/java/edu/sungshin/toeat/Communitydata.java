@@ -21,6 +21,5 @@ public class Communitydata{
     public void setContent(String contents) {
         content = contents;
     }
-
 }
 

@@ -1,9 +1,6 @@
 package edu.sungshin.toeat;
 
-import static android.content.Context.LAYOUT_INFLATER_SERVICE;
-
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +11,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -79,7 +74,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
             textView2=itemView.findViewById(R.id.textView2);
             textView3=itemView.findViewById(R.id.textView3);
             textView4=itemView.findViewById(R.id.textView4);
-            textView5=itemView.findViewById(R.id.textView5);
+            textView5=itemView.findViewById(R.id.logout);
 
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
