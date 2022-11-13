@@ -92,7 +92,7 @@ public class UserAdapter {
     public ArrayList getTableData(){
         try{
             String sql="SELECT * FROM "+tableName;  //table 이름을 통해 사용자DB 불러옴
-            ArrayList userList=new ArrayList();  //모델을 넣을 리스트 생성
+            ArrayList <Food> userList=new ArrayList<Food>();  //모델을 넣을 리스트 생성
             Food user=null;  //모델 선언
             Cursor mCur=mDb.rawQuery(sql,null);
             if(mCur!=null){
