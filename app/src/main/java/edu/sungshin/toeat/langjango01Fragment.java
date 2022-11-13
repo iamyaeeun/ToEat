@@ -21,6 +21,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class langjango01Fragment extends Fragment{
     View diaLogView,diaLogView2;
@@ -31,7 +32,7 @@ public class langjango01Fragment extends Fragment{
     int year,month,day;
     int selected;
     int x;
-    ArrayList<Food> foodList;
+    ArrayList <Food>foodList;
     String no;
 
     @Override

@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.widget.EditText;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.List;
 
 public class UserAdapter {
     private Context mContext;
-    private SQLiteDatabase mDb;
+    private static SQLiteDatabase mDb;
     private UserDBActivityHelper mDbHelper;
     private String tableName="FoodData";
 
@@ -60,7 +61,7 @@ public class UserAdapter {
         mDbHelper.close();
     }   //DB가 닫히도록 하는 코드
 
-    public void insert(int no,String foodName,String expirationDate, int amount, String market, String memo){  //Insert
+    public void insert(String no, String foodName, String expirationDate, String amount, String market, String memo){  //Insert
         mDb=mDbHelper.getWritableDatabase();
         ContentValues value=new ContentValues();
         value.put("no",no);
@@ -77,10 +78,14 @@ public class UserAdapter {
         mDb.delete("FoodData","no=?",new String[]{String.valueOf(no)});  //사용자 DB에 사용자값 delete
     }
 
-    public List getTableData(){
+    public static void update(EditText foodName, EditText expiration, EditText num, EditText market, EditText memo) {
+        mDb.execSQL("UPDATE myTable SET foodName="+foodName+"expirationDate="+expiration+"amount="+num+"market="+market+"memo="+memo);
+    }
+
+    public ArrayList getTableData(){
         try{
             String sql="SELECT * FROM "+tableName;  //table 이름을 통해 사용자DB 불러옴
-            List userList=new ArrayList();  //모델을 넣을 리스트 생성
+            ArrayList userList=new ArrayList();  //모델을 넣을 리스트 생성
             Food user=null;  //모델 선언
             Cursor mCur=mDb.rawQuery(sql,null);
             if(mCur!=null){
