@@ -4,6 +4,7 @@ import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +41,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Food item=items.get(position);
         holder.setItem(item);
         holder.foodDelete.setOnClickListener(new View.OnClickListener() {
@@ -101,7 +102,18 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
                     memo.setText(textView5.getText().toString());
 
                     dlg.setView(diaLogView);
-                    dlg.setPositiveButton("확인",null);
+                    dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i){
+                            foodName.setText(textView.getText().toString());
+                            expiration.setText(textView2.getText().toString());
+                            num.setText(textView3.getText().toString());
+                            market.setText(textView4.getText().toString());
+                            memo.setText(textView5.getText().toString());
+
+                            UserAdapter.update(foodName,expiration,num,market,memo);
+                        }
+                    }); //확인 버튼 누르면 수정
                     dlg.setNegativeButton("취소",null);
                     dlg.show();
                 }
