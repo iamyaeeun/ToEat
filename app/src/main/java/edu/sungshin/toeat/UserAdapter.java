@@ -9,6 +9,10 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.widget.EditText;
+import android.view.View;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,7 +22,7 @@ public class UserAdapter {
     private Context mContext;
     private static SQLiteDatabase mDb;
     private UserDBActivityHelper mDbHelper;
-    private String tableName="FoodData";
+    private String tableName="FoodDB";
 
     public UserAdapter(Context context)   //다른 클래스에서 Activity를 Context를 활용해 호출
     {
@@ -76,6 +80,9 @@ public class UserAdapter {
     public void delete(int no){
         mDb=mDbHelper.getWritableDatabase();
         mDb.delete("FoodData","no=?",new String[]{String.valueOf(no)});  //사용자 DB에 사용자값 delete
+
+        ArrayList<Food> foodList= getTableData();
+
     }
 
     public static void update(EditText foodName, EditText expiration, EditText num, EditText market, EditText memo) {

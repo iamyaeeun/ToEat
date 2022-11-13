@@ -1,35 +1,35 @@
 package edu.sungshin.toeat;
 
+import static android.content.Context.LAYOUT_INFLATER_SERVICE;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     ArrayList<Food> items=new ArrayList<>();
-    public FoodAdapter(ArrayList<Food>foodList) {
-        items=foodList;
-    }
-    public void addItem(Food item){
-        items.add(item);
-    }
+
+    public FoodAdapter(ArrayList<Food> foodList){ items=foodList;}//생성자:전달한 FoodList 받아 items리스트에 대입
+
+    public void addItem(Food item){ items.add(item); }
     public void setItems(ArrayList<Food> items){ this.items=items; }
-    public Food getItem(int position){
-        return items.get(position);
-    }
-    public void setItem(int position, Food item){
-        items.set(position,item);
-    }
+    public Food getItem(int position){ return items.get(position); }
+    public void setItem(int position, Food item){ items.set(position,item); }
 
     @NonNull
     @Override
@@ -44,15 +44,28 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Food item=items.get(position);
         holder.setItem(item);
+        holder.foodDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Food item=items.get(position);
+                items.remove(item);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position,items.size());
+
+                UserAdapter mDbHelper=new UserAdapter(view.getContext());
+                mDbHelper.createDatabase();
+                mDbHelper.open();
+                mDbHelper.delete(item.getName());
+            }
+        });
     }
 
     @Override
-    public int getItemCount() {
-        return items.size();
-    }
+    public int getItemCount() { return items.size(); }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imageView;
+        Button foodDelete;
         TextView textView,textView2,textView3,textView4,textView5;
 
         View diaLogView;
@@ -62,6 +75,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
             super(itemView);
 
             imageView=itemView.findViewById(R.id.imageView);
+            foodDelete=itemView.findViewById(R.id.deleteBtn);
             textView=itemView.findViewById(R.id.textView);
             textView2=itemView.findViewById(R.id.textView2);
             textView3=itemView.findViewById(R.id.textView3);

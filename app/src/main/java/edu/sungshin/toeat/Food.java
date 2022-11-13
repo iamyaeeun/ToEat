@@ -17,7 +17,7 @@ public class Food {
         this.memo=memo;
     }
 
-    public String getName() {return foodName;}
+    public int getName() {return foodName;}
     public void setName(String foodName){this.foodName=foodName;}
 
     public String getExpiration() {return expirationDate;}
