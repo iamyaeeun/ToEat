@@ -31,7 +31,7 @@ public class langjango01Fragment extends Fragment{
     int year,month,day;
     int selected;
     int x;
-    ArrayList<Food> foodList;
+    ArrayList <Food>foodList;
     String no;
 
     @Override

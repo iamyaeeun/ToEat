@@ -1,6 +1,10 @@
 package edu.sungshin.toeat;
 
+import static android.content.Context.LAYOUT_INFLATER_SERVICE;
+
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +15,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -35,7 +41,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Food item=items.get(position);
         holder.setItem(item);
         holder.foodDelete.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +80,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
             textView2=itemView.findViewById(R.id.textView2);
             textView3=itemView.findViewById(R.id.textView3);
             textView4=itemView.findViewById(R.id.textView4);
-            textView5=itemView.findViewById(R.id.logout);
+            textView5=itemView.findViewById(R.id.textView5);
 
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -96,7 +102,18 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
                     memo.setText(textView5.getText().toString());
 
                     dlg.setView(diaLogView);
-                    dlg.setPositiveButton("확인",null);
+                    dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i){
+                            foodName.setText(textView.getText().toString());
+                            expiration.setText(textView2.getText().toString());
+                            num.setText(textView3.getText().toString());
+                            market.setText(textView4.getText().toString());
+                            memo.setText(textView5.getText().toString());
+
+                            UserAdapter.update(foodName,expiration,num,market,memo);
+                        }
+                    }); //확인 버튼 누르면 수정
                     dlg.setNegativeButton("취소",null);
                     dlg.show();
                 }
