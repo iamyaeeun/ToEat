@@ -13,7 +13,6 @@ public class imageaction extends AppCompatActivity {
     private final int GET_GALLERY_IMAGE = 200;
     private ImageView imageview;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +28,6 @@ public class imageaction extends AppCompatActivity {
             }
         });
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

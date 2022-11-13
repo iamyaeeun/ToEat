@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     langjango04Fragement langjango04Fragement;
     langjango05Fragement langjango05Fragement;
     langjango06Fragement langjango06Fragement;
+    WritePostFragment writePostFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         langjango04Fragement=new langjango04Fragement();
         langjango05Fragement=new langjango05Fragement();
         langjango06Fragement=new langjango06Fragement();
+        writePostFragment=new WritePostFragment();
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -75,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
         else if(index==5) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango06Fragement).commit();
 
         else if(index==6) getSupportFragmentManager().beginTransaction().replace(R.id.container,mainFragment).commit();
+        else if(index==10) getSupportFragmentManager().beginTransaction().replace(R.id.container,writePostFragment).commit();
+        else if(index==20) getSupportFragmentManager().beginTransaction().replace(R.id.container,snsFragment).commit();
     }
 
     public void startAlarm(Calendar c, String foodName){
@@ -84,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
         PendingIntent pendingIntent=PendingIntent.getBroadcast(this,1,intent,0);
 
         c.set(Calendar.DAY_OF_MONTH,c.get(Calendar.DAY_OF_MONTH)-3);
-        c.set(Calendar.HOUR_OF_DAY,12);
-        c.set(Calendar.MINUTE,10);
+        c.set(Calendar.HOUR_OF_DAY,7);
+        c.set(Calendar.MINUTE,1);
         c.set(Calendar.SECOND,10);
 
         Log.d("MyTEST", String.valueOf(c.get(Calendar.YEAR))+String.valueOf(c.get(Calendar.MONTH))+String.valueOf(c.get(Calendar.DAY_OF_MONTH)));

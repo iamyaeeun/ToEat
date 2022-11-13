@@ -1,13 +1,11 @@
 package edu.sungshin.toeat;
 
-import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -86,18 +84,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
                     memo.setText(textView5.getText().toString());
 
                     dlg.setView(diaLogView);
-                    dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i){
-                            foodName.setText(textView.getText().toString());
-                            expiration.setText(textView2.getText().toString());
-                            num.setText(textView3.getText().toString());
-                            market.setText(textView4.getText().toString());
-                            memo.setText(textView5.getText().toString());
-
-                            UserAdapter.update(foodName,expiration,num,market,memo);
-                        }
-                    }); //확인 버튼 누르면 수정
+                    dlg.setPositiveButton("확인",null);
                     dlg.setNegativeButton("취소",null);
                     dlg.show();
                 }
