@@ -72,17 +72,6 @@
             android:layout_marginTop="415dp"
             android:background="@drawable/toeatmainicon"
             android:text="냉장고 06" />
-
-
-        <Button
-            android:id="@+id/plusbutton"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="300dp"
-            android:layout_marginTop="600dp"
-            android:background="@drawable/plusbutton" />
-
-
     </FrameLayout>
 
 

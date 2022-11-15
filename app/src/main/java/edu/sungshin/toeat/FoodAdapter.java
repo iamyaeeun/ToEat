@@ -44,6 +44,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Food item=items.get(position);
         holder.setItem(item);
+
         holder.foodDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,6 +59,52 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
                 mDbHelper.delete(item.getName());
             }
         });
+
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View diaLogView;
+                EditText foodName,expiration,num,market,memo;
+
+                diaLogView=(View)View.inflate(view.getContext(), R.layout.info,null);
+                AlertDialog.Builder dlg=new AlertDialog.Builder(view.getContext());
+                dlg.setTitle("저장된 식품 정보");
+
+                Food item=items.get(position);
+
+                foodName=diaLogView.findViewById(R.id.editText1);
+                expiration=diaLogView.findViewById(R.id.editText2);
+                num=diaLogView.findViewById(R.id.editText3);
+                market=diaLogView.findViewById(R.id.editText4);
+                memo=diaLogView.findViewById(R.id.editText5);
+
+                foodName.setText(item.getName());
+                expiration.setText(item.getExpiration());
+                num.setText(item.getNum());
+                market.setText(item.getMarket());
+                memo.setText(item.getMemo());
+
+                dlg.setView(diaLogView);
+                dlg.setPositiveButton("수정 완료", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i){
+                        item.setName(foodName.getText().toString());
+                        item.setExpiration(expiration.getText().toString());
+                        item.setNum(num.getText().toString());
+                        item.setMarket(market.getText().toString());
+                        item.setMemo(memo.getText().toString());
+                        notifyItemChanged(position);
+
+                        UserAdapter mDbHelper=new UserAdapter(view.getContext());
+                        mDbHelper.createDatabase();
+                        mDbHelper.open();
+                        mDbHelper.update(item.getName(),item.getExpiration(),item.getNum(),item.getMarket(),item.getMemo());
+                    }
+                }); //확인 버튼 누르면 수정
+                dlg.setNegativeButton("닫기",null);
+                dlg.show();
+            }
+        });
     }
 
     @Override
@@ -68,56 +115,17 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
         Button foodDelete;
         TextView textView,textView2,textView3,textView4,textView5;
 
-        View diaLogView;
-        EditText foodName,expiration,num,market,memo;
-
         public ViewHolder(View itemView){
             super(itemView);
 
             imageView=itemView.findViewById(R.id.imageView);
             foodDelete=itemView.findViewById(R.id.deleteBtn);
+
             textView=itemView.findViewById(R.id.textView);
             textView2=itemView.findViewById(R.id.textView2);
             textView3=itemView.findViewById(R.id.textView3);
             textView4=itemView.findViewById(R.id.textView4);
             textView5=itemView.findViewById(R.id.textView5);
-
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    diaLogView=(View)View.inflate(view.getContext(), R.layout.info,null);
-                    AlertDialog.Builder dlg=new AlertDialog.Builder(view.getContext());
-                    dlg.setTitle("저장된 식품 정보");
-
-                    foodName=diaLogView.findViewById(R.id.editText1);
-                    expiration=diaLogView.findViewById(R.id.editText2);
-                    num=diaLogView.findViewById(R.id.editText3);
-                    market=diaLogView.findViewById(R.id.editText4);
-                    memo=diaLogView.findViewById(R.id.editText5);
-
-                    foodName.setText(textView.getText().toString());
-                    expiration.setText(textView2.getText().toString());
-                    num.setText(textView3.getText().toString());
-                    market.setText(textView4.getText().toString());
-                    memo.setText(textView5.getText().toString());
-
-                    dlg.setView(diaLogView);
-                    dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i){
-                            foodName.setText(textView.getText().toString());
-                            expiration.setText(textView2.getText().toString());
-                            num.setText(textView3.getText().toString());
-                            market.setText(textView4.getText().toString());
-                            memo.setText(textView5.getText().toString());
-
-                            UserAdapter.update(foodName,expiration,num,market,memo);
-                        }
-                    }); //확인 버튼 누르면 수정
-                    dlg.setNegativeButton("취소",null);
-                    dlg.show();
-                }
-            });
         }
 
         public void setItem(Food item){
