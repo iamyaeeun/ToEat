@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -44,6 +45,7 @@ public class WritePostFragment extends Fragment {
         activity=(MainActivity)getActivity();
         comList=new ArrayList<>();
         db=FirebaseFirestore.getInstance();
+        user= FirebaseAuth.getInstance().getCurrentUser();
         postWriter=rootView.findViewById(R.id.postWriter);
         postContents=rootView.findViewById(R.id.postContents);
         upload=rootView.findViewById(R.id.postUpload);
@@ -58,12 +60,12 @@ public class WritePostFragment extends Fragment {
     }
 
     private void postUpdate(){
+        String id=user.getUid();
         String writer=postWriter.getText().toString();
         String contents=postContents.getText().toString();
 
         if(postWriter.length()>0&&postContents.length()>0){
-            //user= FirebaseAuth.getInstance().getCurrentUser();
-            Communitydata writeInfo=new Communitydata(writer,contents);
+            Communitydata writeInfo=new Communitydata(id,writer,contents);
             uploader(writeInfo);
             back();
         }

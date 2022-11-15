@@ -85,8 +85,15 @@ public class UserAdapter {
 
     }
 
-    public static void update(EditText foodName, EditText expiration, EditText num, EditText market, EditText memo) {
-        mDb.execSQL("UPDATE FoodDB SET foodName="+foodName+"expirationDate="+expiration+"amount="+num+"market="+market+"memo="+memo);
+    public void update(String foodName, String expirationDate, String amount, String market, String memo) {
+        mDb=mDbHelper.getWritableDatabase();
+        ContentValues value=new ContentValues();
+        value.put("foodName",foodName);
+        value.put("expirationDate",expirationDate);
+        value.put("amount",amount);
+        value.put("market",market);
+        value.put("memo",memo);
+        mDb.update("FoodDB",value,"foodName=?",new String[]{String.valueOf(foodName)});
     }
 
     public ArrayList getTableData(){

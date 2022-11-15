@@ -36,12 +36,20 @@
         app:layout_constraintTop_toBottomOf="@+id/et_email" />
 
 
+    <TextView
+        android:id="@+id/pwdHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/et_pwd"
+        app:layout_constraintStart_toStartOf="@+id/et_pwd"
+        android:text="*비밀번호는 숫자,영문자를 섞어 6자리 이상 입력" />
+
     <Button
         android:id="@+id/btn_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:layout_marginBottom="223dp"
+        android:layout_marginBottom="180dp"
         android:backgroundTint="#FFB200"
         android:text="로그인"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,7 +62,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="221dp"
+        android:layout_marginBottom="180dp"
         android:backgroundTint="#FFB200"
         android:text="회원가입"
         app:layout_constraintBottom_toBottomOf="parent"
