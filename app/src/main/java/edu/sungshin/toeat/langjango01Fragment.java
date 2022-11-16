@@ -29,7 +29,6 @@ public class langjango01Fragment extends Fragment{
     FloatingActionButton btnSubtract,btnAdd,foodAdd;
     CalendarView calendarView;
     int year,month,day;
-    int selected;
     int x;
     ArrayList <Food>foodList;
     String no;

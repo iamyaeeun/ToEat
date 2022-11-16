@@ -65,25 +65,25 @@
             android:layout_marginTop="50dp"
             android:background="#FFFFFF"
             android:text="내 글 모아보기"
-            android:textSize="35dp" />
+            android:textSize="30dp" />
 
         <Button
             android:id="@+id/logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="40dp"
             android:background="#FFFFFF"
             android:text="로그아웃"
-            android:textSize="35dp" />
+            android:textSize="30dp" />
         <Button
             android:id="@+id/withdrawal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="40dp"
             android:text="회원 탈퇴"
-            android:textSize="35dp"
+            android:textSize="30dp"
             android:background="#FFFFFF"/>
 
 
