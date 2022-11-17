@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         else if(index==20) getSupportFragmentManager().beginTransaction().replace(R.id.container,snsFragment).commit();
         else if(index==30) getSupportFragmentManager().beginTransaction().replace(R.id.container,myPostFragment).commit();
         else if(index==40) getSupportFragmentManager().beginTransaction().replace(R.id.container,mypageFragment).commit();
+        else if(index==80) getSupportFragmentManager().beginTransaction().replace(R.id.container,snsFragment).commit();
     }
 
     public void startAlarm(Calendar c, String foodName){

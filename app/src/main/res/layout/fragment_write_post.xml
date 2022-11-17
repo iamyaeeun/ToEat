@@ -31,4 +31,11 @@
         android:layout_height="wrap_content"
         android:text="확인"
         android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/backBtn"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="뒤로가기" />
 </LinearLayout>

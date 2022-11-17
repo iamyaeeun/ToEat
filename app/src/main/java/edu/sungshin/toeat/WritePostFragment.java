@@ -33,7 +33,7 @@ import java.util.ArrayList;
 
 public class WritePostFragment extends Fragment {
     EditText postWriter,postContents;
-    Button upload;
+    Button upload,backBtn;
     FirebaseUser user;
     FirebaseFirestore db;
     MainActivity activity;
@@ -49,7 +49,13 @@ public class WritePostFragment extends Fragment {
         postWriter=rootView.findViewById(R.id.postWriter);
         postContents=rootView.findViewById(R.id.postContents);
         upload=rootView.findViewById(R.id.postUpload);
-
+        backBtn=rootView.findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.onFragmentChanged(80);
+            }
+        });
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
