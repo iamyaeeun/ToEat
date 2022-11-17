@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SnsFragment">
+    android:orientation="vertical"
+    tools:context=".langjango01Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#C7EFF4"
-        android:text="sns fragment" />
+        android:layout_height="match_parent" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/plusBtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="480dp"
+        android:background="@drawable/plusbutton" />
+
+</RelativeLayout>
