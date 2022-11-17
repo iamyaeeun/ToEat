@@ -1,14 +1,18 @@
 package edu.sungshin.toeat;
 
 public class Communitydata{
+    String publisher;
     String nickname;
     String content;
 
-    public Communitydata(String name, String contents) {
+    public Communitydata(String publish,String name, String contents) {
+        this.publisher=publish;
         this.nickname = name;
         this.content = contents;
     }
 
+    public String getPublisher() { return publisher; }
+    public void setPublisher(String publisher) { this.publisher = publisher; }
     public String getNickname() {
         return nickname;
     }
@@ -21,6 +25,5 @@ public class Communitydata{
     public void setContent(String contents) {
         content = contents;
     }
-
 }
 

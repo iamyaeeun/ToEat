@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,13 +14,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
-    private FirebaseAuth mFirebaseAuth;
     MainFragment mainFragment;
     SnsFragment snsFragment;
     MypageFragment mypageFragment;
@@ -30,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     langjango05Fragement langjango05Fragement;
     langjango06Fragement langjango06Fragement;
     WritePostFragment writePostFragment;
+    MyPostFragment myPostFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         langjango05Fragement=new langjango05Fragement();
         langjango06Fragement=new langjango06Fragement();
         writePostFragment=new WritePostFragment();
+        myPostFragment=new MyPostFragment();
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -66,7 +75,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+        if(user==null){
+            Intent intent=new Intent(MainActivity.this,LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
+
     public void onFragmentChanged(int index){
         if(index==0) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango01Fragment).commit();
         else if(index==1) getSupportFragmentManager().beginTransaction().replace(R.id.container,langjango02Fragement).commit();
@@ -78,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
         else if(index==6) getSupportFragmentManager().beginTransaction().replace(R.id.container,mainFragment).commit();
         else if(index==10) getSupportFragmentManager().beginTransaction().replace(R.id.container,writePostFragment).commit();
         else if(index==20) getSupportFragmentManager().beginTransaction().replace(R.id.container,snsFragment).commit();
+        else if(index==30) getSupportFragmentManager().beginTransaction().replace(R.id.container,myPostFragment).commit();
+        else if(index==40) getSupportFragmentManager().beginTransaction().replace(R.id.container,mypageFragment).commit();
     }
 
     public void startAlarm(Calendar c, String foodName){
@@ -91,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
         c.set(Calendar.MINUTE,1);
         c.set(Calendar.SECOND,10);
 
-        Log.d("MyTEST", String.valueOf(c.get(Calendar.YEAR))+String.valueOf(c.get(Calendar.MONTH))+String.valueOf(c.get(Calendar.DAY_OF_MONTH)));
         alarmManager.setExact(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),pendingIntent);
     }
 }

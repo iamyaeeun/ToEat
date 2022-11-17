@@ -11,7 +11,7 @@ public class AlertReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String msg=intent.getStringExtra("food");
         NotificationHelper notificationHelper=new NotificationHelper(context);
-        NotificationCompat.Builder nb=notificationHelper.getChannel1Notification("유통기한 임박 알림",msg+" 유통기한 3일 남았습니다.");
+        NotificationCompat.Builder nb=notificationHelper.getChannel1Notification("유통기한 임박 알림",msg+" 유통기한이 임박했습니다.");
         notificationHelper.getManager().notify(1,nb.build());
     }
 }

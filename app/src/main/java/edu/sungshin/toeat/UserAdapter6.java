@@ -8,29 +8,23 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
-import android.widget.EditText;
-import android.view.View;
-
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
-public class UserAdapter {
+public class UserAdapter6 {
     private Context mContext;
     private static SQLiteDatabase mDb;
-    private UserDBActivityHelper mDbHelper;
-    private String tableName="FoodDB";
+    private UserDBActivityHelper6 mDbHelper;
+    private String tableName="FoodDB6";
 
-    public UserAdapter(Context context)   //다른 클래스에서 Activity를 Context를 활용해 호출
+    public UserAdapter6(Context context)   //다른 클래스에서 Activity를 Context를 활용해 호출
     {
         this.mContext = context;
-        mDbHelper = new UserDBActivityHelper(mContext);
+        mDbHelper = new UserDBActivityHelper6(mContext);
     }
 
-    public UserAdapter createDatabase() throws SQLException  //DB 생성 코드
+    public UserAdapter6 createDatabase() throws SQLException  //DB 생성 코드
     {
         try
         {
@@ -44,7 +38,7 @@ public class UserAdapter {
         return this;
     }
 
-    public UserAdapter open() throws SQLException  //DB를 여는 코드
+    public UserAdapter6 open() throws SQLException  //DB를 여는 코드
     {
         try
         {
@@ -74,12 +68,12 @@ public class UserAdapter {
         value.put("amount",amount);
         value.put("market",market);
         value.put("memo",memo);
-        mDb.insert("FoodDB",null,value);  //사용자 DB에 사용자값 insert
+        mDb.insert("FoodDB6",null,value);  //사용자 DB에 사용자값 insert
     }
 
     public void delete(String foodName){
         mDb=mDbHelper.getWritableDatabase();
-        mDb.delete("FoodDB","foodName=?",new String[]{String.valueOf(foodName)});  //사용자 DB에 사용자값 delete
+        mDb.delete("FoodDB6","foodName=?",new String[]{String.valueOf(foodName)});  //사용자 DB에 사용자값 delete
 
         ArrayList<Food> foodList= getTableData();
 
@@ -93,7 +87,7 @@ public class UserAdapter {
         value.put("amount",amount);
         value.put("market",market);
         value.put("memo",memo);
-        mDb.update("FoodDB",value,"foodName=?",new String[]{String.valueOf(foodName)});
+        mDb.update("FoodDB6",value,"foodName=?",new String[]{String.valueOf(foodName)});
     }
 
     public ArrayList getTableData(){

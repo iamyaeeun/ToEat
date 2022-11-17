@@ -1,9 +1,6 @@
 package edu.sungshin.toeat;
 
-import static android.content.Context.LAYOUT_INFLATER_SERVICE;
-
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,16 +12,14 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
+public class FoodAdapter2 extends RecyclerView.Adapter<FoodAdapter2.ViewHolder> {
     ArrayList<Food> items=new ArrayList<>();
 
-    public FoodAdapter(ArrayList<Food> foodList){ items=foodList;}//생성자:전달한 FoodList 받아 items리스트에 대입
+    public FoodAdapter2(ArrayList<Food> foodList){ items=foodList;}//생성자:전달한 FoodList 받아 items리스트에 대입
 
     public void addItem(Food item){ items.add(item); }
     public void setItems(ArrayList<Food> items){ this.items=items; }
@@ -53,7 +48,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position,items.size());
 
-                UserAdapter mDbHelper=new UserAdapter(view.getContext());
+                UserAdapter2 mDbHelper=new UserAdapter2(view.getContext());
                 mDbHelper.createDatabase();
                 mDbHelper.open();
                 mDbHelper.delete(item.getName());
@@ -95,7 +90,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
                         item.setMemo(memo.getText().toString());
                         notifyItemChanged(position);
 
-                        UserAdapter mDbHelper=new UserAdapter(view.getContext());
+                        UserAdapter2 mDbHelper=new UserAdapter2(view.getContext());
                         mDbHelper.createDatabase();
                         mDbHelper.open();
                         mDbHelper.update(item.getName(),item.getExpiration(),item.getNum(),item.getMarket(),item.getMemo());

@@ -12,16 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/foodAddButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="60dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginBottom="60dp"
-        android:clickable="true"
-        android:src="@android:drawable/ic_menu_add" />
+    <Button
+        android:id="@+id/plusBtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="480dp"
+        android:background="@drawable/plusbutton" />
 
 </RelativeLayout>

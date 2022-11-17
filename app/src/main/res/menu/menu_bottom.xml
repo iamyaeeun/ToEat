@@ -5,19 +5,19 @@
         android:id="@+id/tab1"
         app:showAsAction="ifRoom"
         android:enabled="true"
-        android:icon="@android:drawable/ic_dialog_email"
+        android:icon="@drawable/ic_baseline_home_24"
         android:title="홈"/>
 
     <item
         android:id="@+id/tab2"
         app:showAsAction="ifRoom"
         android:enabled="true"
-        android:icon="@android:drawable/ic_dialog_info"
+        android:icon="@drawable/ic_baseline_people_24"
         android:title="커뮤니티"/>
     <item
         android:id="@+id/tab3"
         app:showAsAction="ifRoom"
         android:enabled="true"
-        android:icon="@android:drawable/ic_dialog_map"
+        android:icon="@drawable/ic_baseline_person_24"
         android:title="마이페이지"/>
 </menu>
