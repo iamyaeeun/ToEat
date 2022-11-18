@@ -64,9 +64,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:clickable="true"
-                android:src="@drawable/minus_trans"
+                android:src="@drawable/minus"
                 app:srcCompat="@drawable/ic_baseline_add_24"
-                app:fabSize="normal"/>
+                app:fabCustomSize="44dp"/>
 
             <EditText
                 android:id="@+id/numCount"
@@ -83,9 +83,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:clickable="true"
-                android:src="@drawable/plus_trans"
+                android:src="@drawable/plus"
                 app:srcCompat="@drawable/ic_baseline_add_24"
-                app:fabSize="normal"/>
+                app:fabCustomSize="44dp"/>
         </LinearLayout>
 
         <TextView
