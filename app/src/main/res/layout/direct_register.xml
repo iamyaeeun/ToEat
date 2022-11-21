@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="식품명"
-            android:textSize="25dp"/>
+            android:textSize="23dp"/>
 
         <EditText
             android:id="@+id/foodName"
@@ -26,7 +26,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="식품명 입력"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:layout_marginBottom="30dp"/>
 
         <TextView
@@ -34,22 +34,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="유통기한"
-            android:textSize="25dp"/>
+            android:textSize="23dp"/>
 
         <Button
             android:id="@+id/setDate"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="유통기한 입력"
-            android:textSize="20dp"
-            android:layout_marginBottom="30dp"/>
+            android:textColor="@color/white"
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="수량"
-            android:textSize="25dp"/>
+            android:textSize="23dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,7 +70,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:clickable="true"
-                app:srcCompat="@drawable/ic_baseline_add_24" />
+                android:src="@drawable/minus"
+                app:srcCompat="@drawable/ic_baseline_add_24"
+                app:fabCustomSize="44dp"/>
 
             <EditText
                 android:id="@+id/numCount"
@@ -81,7 +89,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:clickable="true"
-                app:srcCompat="@drawable/ic_baseline_add_24" />
+                android:src="@drawable/plus"
+                app:srcCompat="@drawable/ic_baseline_add_24"
+                app:fabCustomSize="44dp"/>
         </LinearLayout>
 
         <TextView
@@ -89,7 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="구입처"
-            android:textSize="25dp"/>
+            android:textSize="23dp"/>
 
         <EditText
             android:id="@+id/market"
@@ -98,7 +108,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="구입처 입력"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:layout_marginBottom="30dp"/>
 
         <TextView
@@ -106,7 +116,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="메모"
-            android:textSize="25dp"/>
+            android:textSize="23dp"/>
 
         <EditText
             android:id="@+id/memo"
@@ -116,7 +126,13 @@
             android:gravity="start|top"
             android:inputType="textMultiLine"
             android:hint="메모 입력"
-            android:textSize="18dp"/>
+            android:textSize="20dp"/>
 
     </LinearLayout>
 </ScrollView>
+
+
+
+
+
+
