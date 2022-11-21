@@ -10,7 +10,6 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F8CACA"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +20,7 @@
         <Button
             android:id="@+id/langjango01"
             android:layout_width="125dp"
-            android:layout_height="148dp"
+            android:layout_height="170dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/toeatmainicon"
@@ -30,7 +29,7 @@
         <Button
             android:id="@+id/langjango02"
             android:layout_width="125dp"
-            android:layout_height="148dp"
+            android:layout_height="170dp"
             android:layout_marginStart="250dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/toeatmainicon"
@@ -39,7 +38,7 @@
         <Button
             android:id="@+id/langjango03"
             android:layout_width="125dp"
-            android:layout_height="148dp"
+            android:layout_height="170dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="215dp"
             android:background="@drawable/toeatmainicon"
@@ -49,7 +48,7 @@
         <Button
             android:id="@+id/langjango04"
             android:layout_width="125dp"
-            android:layout_height="148dp"
+            android:layout_height="170dp"
             android:layout_marginStart="250dp"
             android:layout_marginTop="215dp"
             android:background="@drawable/toeatmainicon"
@@ -58,7 +57,7 @@
         <Button
             android:id="@+id/langjango05"
             android:layout_width="125dp"
-            android:layout_height="148dp"
+            android:layout_height="170dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="415dp"
             android:background="@drawable/toeatmainicon"
@@ -67,7 +66,7 @@
         <Button
             android:id="@+id/langjango06"
             android:layout_width="125dp"
-            android:layout_height="148dp"
+            android:layout_height="170dp"
             android:layout_marginStart="250dp"
             android:layout_marginTop="415dp"
             android:background="@drawable/toeatmainicon"

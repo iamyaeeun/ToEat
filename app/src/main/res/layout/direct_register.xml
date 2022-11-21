@@ -44,6 +44,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
+            android:background="@drawable/drawable"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="유통기한 입력"
@@ -64,34 +65,27 @@
             android:gravity="center"
             android:layout_marginBottom="30dp">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
+            <Button
                 android:id="@+id/numSubtract"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:src="@drawable/minus"
-                app:srcCompat="@drawable/ic_baseline_add_24"
-                app:fabCustomSize="44dp"/>
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/minus_trans"
+                android:clickable="true" />
 
             <EditText
                 android:id="@+id/numCount"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="0"
                 android:textSize="25dp"
                 android:gravity="center"/>
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
+            <Button
                 android:id="@+id/numAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:clickable="true"
-                android:src="@drawable/plus"
-                app:srcCompat="@drawable/ic_baseline_add_24"
-                app:fabCustomSize="44dp"/>
+                android:background="@drawable/plus_trans"/>
         </LinearLayout>
 
         <TextView
@@ -130,8 +124,6 @@
 
     </LinearLayout>
 </ScrollView>
-
-
 
 
 

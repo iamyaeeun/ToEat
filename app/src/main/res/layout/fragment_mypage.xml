@@ -2,7 +2,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MypageFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -16,21 +15,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:text="my page"
-            android:textSize="30dp" />
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:background="@drawable/layoutbg"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
                 android:layout_gravity="center_vertical|center_horizontal"
-                app:srcCompat="@drawable/ic_image" />
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/ic_baseline_person_24" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -41,51 +49,67 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="20dp"
                     android:text="idid"
-                    android:textSize="25dp" />
+                    android:textStyle="bold"
+                    android:textColor="@color/toeat"
+                    android:textSize="23dp" />
 
                 <TextView
                     android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="20dp"
                     android:text="님의 냉장고"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:textColor="@color/black"/>
             </LinearLayout>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/myPost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"
-            android:background="#FFFFFF"
-            android:text="내 글 모아보기"
-            android:textSize="30dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/layoutbg"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="40dp"
-            android:background="#FFFFFF"
-            android:text="로그아웃"
-            android:textSize="30dp" />
-        <Button
-            android:id="@+id/withdrawal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="40dp"
-            android:text="회원 탈퇴"
-            android:textSize="30dp"
-            android:background="#FFFFFF"/>
+            <Button
+                android:id="@+id/myPost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:background="#FFFFFF"
+                android:text="내 게시글 모아보기"
+                android:textSize="19dp"
+                android:textAlignment="textStart"/>
 
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:background="#FFFFFF"
+                android:text="로그아웃"
+                android:textSize="19dp"
+                android:textAlignment="textStart"/>
 
+            <Button
+                android:id="@+id/withdrawal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:background="#FFFFFF"
+                android:text="회원 탈퇴"
+                android:textSize="19dp"
+                android:textAlignment="textStart"/>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
