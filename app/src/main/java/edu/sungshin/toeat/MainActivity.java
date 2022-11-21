@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         AlarmManager alarmManager=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent=new Intent(this,AlertReceiver.class);
         intent.putExtra("food",foodName);
-        PendingIntent pendingIntent=PendingIntent.getBroadcast(this,1,intent,0);
+        PendingIntent pendingIntent=PendingIntent.getBroadcast(this,1,intent,PendingIntent.FLAG_MUTABLE);
 
         c.set(Calendar.DAY_OF_MONTH,c.get(Calendar.DAY_OF_MONTH)-3);
         c.set(Calendar.HOUR_OF_DAY,7);
