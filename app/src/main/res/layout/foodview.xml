@@ -31,10 +31,11 @@
             android:layout_marginTop="20dp"
             android:text="수량"
             android:textSize="20dp" />
+
         <Button
             android:id="@+id/btn_minus"
-            android:layout_width="18dp"
-            android:layout_height="20dp"
+            android:layout_width="23dp"
+            android:layout_height="22dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/minus" />
@@ -51,8 +52,8 @@
 
         <Button
             android:id="@+id/btn_add"
-            android:layout_width="18dp"
-            android:layout_height="20dp"
+            android:layout_width="24dp"
+            android:layout_height="23dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/plus" />

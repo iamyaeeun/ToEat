@@ -69,7 +69,7 @@
                 android:id="@+id/numSubtract"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/minus_trans"
+                android:background="@drawable/minus"
                 android:clickable="true" />
 
             <EditText
@@ -85,7 +85,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:clickable="true"
-                android:background="@drawable/plus_trans"/>
+                android:background="@drawable/plus"/>
         </LinearLayout>
 
         <TextView
