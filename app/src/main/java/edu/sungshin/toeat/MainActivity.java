@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -74,13 +75,14 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
+        /*
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
         if(user==null){
             Intent intent=new Intent(MainActivity.this,LoginActivity.class);
             startActivity(intent);
             finish();
         }
+        */
     }
 
     public void onFragmentChanged(int index){
@@ -96,13 +98,14 @@ public class MainActivity extends AppCompatActivity {
         else if(index==20) getSupportFragmentManager().beginTransaction().replace(R.id.container,snsFragment).commit();
         else if(index==30) getSupportFragmentManager().beginTransaction().replace(R.id.container,myPostFragment).commit();
         else if(index==40) getSupportFragmentManager().beginTransaction().replace(R.id.container,mypageFragment).commit();
+        else if(index==80) getSupportFragmentManager().beginTransaction().replace(R.id.container,snsFragment).commit();
     }
 
     public void startAlarm(Calendar c, String foodName){
         AlarmManager alarmManager=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent=new Intent(this,AlertReceiver.class);
         intent.putExtra("food",foodName);
-        PendingIntent pendingIntent=PendingIntent.getBroadcast(this,1,intent,0);
+        PendingIntent pendingIntent=PendingIntent.getBroadcast(this,1,intent,PendingIntent.FLAG_UPDATE_CURRENT);
 
         c.set(Calendar.DAY_OF_MONTH,c.get(Calendar.DAY_OF_MONTH)-3);
         c.set(Calendar.HOUR_OF_DAY,7);
@@ -110,5 +113,24 @@ public class MainActivity extends AppCompatActivity {
         c.set(Calendar.SECOND,10);
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),pendingIntent);
+    }
+
+    private final long FINISH_INTERVAL_TIME = 2000;
+    private long backPressedTime = 0;
+
+    @Override
+    public void onBackPressed() {
+        long tempTime = System.currentTimeMillis();
+        long intervalTime = tempTime - backPressedTime;
+
+        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime)
+        {
+            finish();
+        }
+        else
+        {
+            backPressedTime = tempTime;
+            Toast.makeText(getApplicationContext(), "한 번 더 누르면 앱이 종료됩니다 ! ", Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -23,19 +23,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:inputType="textPersonName"
                 android:text="작성자"
-                android:textSize="27dp" />
+                android:textSize="20dp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/postContents"
                 android:layout_width="match_parent"
-                android:layout_height="184dp"
+                android:layout_height="match_parent"
                 android:ems="10"
+                android:layout_marginBottom="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
                 android:text="내용"
-                android:textSize="25dp" />
+                android:textSize="18dp"
+                />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
