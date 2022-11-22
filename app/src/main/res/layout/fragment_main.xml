@@ -10,7 +10,6 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F8CACA"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,58 +20,56 @@
         <Button
             android:id="@+id/langjango01"
             android:layout_width="125dp"
-            android:layout_height="148dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="15dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="70dp"
             android:background="@drawable/toeatmainicon"
             android:text="냉장고 01" />
 
         <Button
             android:id="@+id/langjango02"
             android:layout_width="125dp"
-            android:layout_height="148dp"
-            android:layout_marginStart="250dp"
-            android:layout_marginTop="15dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="240dp"
+            android:layout_marginTop="70dp"
             android:background="@drawable/toeatmainicon"
             android:text="냉장고 02" />
 
         <Button
             android:id="@+id/langjango03"
             android:layout_width="125dp"
-            android:layout_height="148dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="215dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="270dp"
             android:background="@drawable/toeatmainicon"
             android:text="냉장고 03" />
-
 
         <Button
             android:id="@+id/langjango04"
             android:layout_width="125dp"
-            android:layout_height="148dp"
-            android:layout_marginStart="250dp"
-            android:layout_marginTop="215dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="240dp"
+            android:layout_marginTop="270dp"
             android:background="@drawable/toeatmainicon"
             android:text="냉장고 04" />
 
         <Button
             android:id="@+id/langjango05"
             android:layout_width="125dp"
-            android:layout_height="148dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="415dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="470dp"
             android:background="@drawable/toeatmainicon"
             android:text="냉장고 05" />
 
         <Button
             android:id="@+id/langjango06"
             android:layout_width="125dp"
-            android:layout_height="148dp"
-            android:layout_marginStart="250dp"
-            android:layout_marginTop="415dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="240dp"
+            android:layout_marginTop="470dp"
             android:background="@drawable/toeatmainicon"
             android:text="냉장고 06" />
     </FrameLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

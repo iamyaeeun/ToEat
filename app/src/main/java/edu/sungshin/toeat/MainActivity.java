@@ -75,13 +75,14 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
+        /*
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
         if(user==null){
             Intent intent=new Intent(MainActivity.this,LoginActivity.class);
             startActivity(intent);
             finish();
         }
+        */
     }
 
     public void onFragmentChanged(int index){
@@ -97,13 +98,14 @@ public class MainActivity extends AppCompatActivity {
         else if(index==20) getSupportFragmentManager().beginTransaction().replace(R.id.container,snsFragment).commit();
         else if(index==30) getSupportFragmentManager().beginTransaction().replace(R.id.container,myPostFragment).commit();
         else if(index==40) getSupportFragmentManager().beginTransaction().replace(R.id.container,mypageFragment).commit();
+        else if(index==80) getSupportFragmentManager().beginTransaction().replace(R.id.container,snsFragment).commit();
     }
 
     public void startAlarm(Calendar c, String foodName){
         AlarmManager alarmManager=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent=new Intent(this,AlertReceiver.class);
         intent.putExtra("food",foodName);
-        PendingIntent pendingIntent=PendingIntent.getBroadcast(this,1,intent,0);
+        PendingIntent pendingIntent=PendingIntent.getBroadcast(this,1,intent,PendingIntent.FLAG_UPDATE_CURRENT);
 
         c.set(Calendar.DAY_OF_MONTH,c.get(Calendar.DAY_OF_MONTH)-3);
         c.set(Calendar.HOUR_OF_DAY,7);
