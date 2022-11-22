@@ -24,17 +24,17 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="670dp"
         android:layout_below="@+id/snsText">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <Button
         android:id="@+id/plusBtn"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="250dp"
-        android:layout_marginTop="480dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="330dp"
+        android:layout_marginTop="670dp"
         android:background="@drawable/plus" />
 
 </RelativeLayout>
