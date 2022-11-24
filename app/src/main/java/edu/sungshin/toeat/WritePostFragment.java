@@ -10,8 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -33,7 +35,7 @@ import java.util.ArrayList;
 
 public class WritePostFragment extends Fragment {
     EditText postWriter,postContents;
-    Button upload,backBtn;
+    Button upload,noWrite;
     FirebaseUser user;
     FirebaseFirestore db;
     MainActivity activity;
@@ -49,19 +51,22 @@ public class WritePostFragment extends Fragment {
         postWriter=rootView.findViewById(R.id.postWriter);
         postContents=rootView.findViewById(R.id.postContents);
         upload=rootView.findViewById(R.id.postUpload);
-        backBtn=rootView.findViewById(R.id.backBtn);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                activity.onFragmentChanged(80);
-            }
-        });
+        noWrite=rootView.findViewById(R.id.noWrite);
+
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 postUpdate();
             }
         });
+
+        noWrite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.onFragmentChanged(80);
+            }
+        });
+
         return rootView;
     }
 

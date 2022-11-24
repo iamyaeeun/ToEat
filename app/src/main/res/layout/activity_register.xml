@@ -10,7 +10,7 @@
         android:id="@+id/et_email"
         android:layout_width="214dp"
         android:layout_height="45dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="252dp"
         android:ems="10"
         android:hint="G메일을 입력하세요"
         android:inputType="textEmailAddress"
@@ -32,12 +32,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/pwdHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/et_pwd"
+        app:layout_constraintStart_toStartOf="@+id/et_pwd"
+        android:text="*비밀번호는 숫자,영문자를 섞어 6자리 이상 입력" />
+
     <Button
         android:id="@+id/btn_register"
-        android:layout_width="411dp"
-        android:layout_height="65dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_margin="30dp"
+        android:layout_marginTop="35dp"
+        android:backgroundTint="#FFB200"
         android:text="가입 완료"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="606dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pwdHint" />
 </androidx.constraintlayout.widget.ConstraintLayout>
