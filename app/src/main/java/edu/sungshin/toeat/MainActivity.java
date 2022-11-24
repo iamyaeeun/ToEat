@@ -77,14 +77,12 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-        /*
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
         if(user==null){
             Intent intent=new Intent(MainActivity.this,LoginActivity.class);
             startActivity(intent);
             finish();
         }
-        */
     }
 
     public void onFragmentChanged(int index){
