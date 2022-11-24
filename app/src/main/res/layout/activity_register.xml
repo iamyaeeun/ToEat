@@ -13,6 +13,7 @@
         android:layout_marginTop="252dp"
         android:ems="10"
         android:hint="G메일을 입력하세요"
+        android:fontFamily="@font/toeatfont"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -26,6 +27,7 @@
         android:layout_marginTop="352dp"
         android:ems="10"
         android:hint="비밀번호를 입력하세요"
+        android:fontFamily="@font/toeatfont"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -36,6 +38,7 @@
         android:id="@+id/pwdHint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/toeatfont"
         app:layout_constraintTop_toBottomOf="@+id/et_pwd"
         app:layout_constraintStart_toStartOf="@+id/et_pwd"
         android:text="*비밀번호는 숫자,영문자를 섞어 6자리 이상 입력" />
@@ -48,6 +51,7 @@
         android:layout_marginTop="35dp"
         android:backgroundTint="#FFB200"
         android:text="가입 완료"
+        android:fontFamily="@font/toeatfont"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pwdHint" />
