@@ -20,47 +20,52 @@
         <Button
             android:id="@+id/langjango01"
             android:layout_width="210dp"
-            android:layout_height="260dp"
+            android:layout_height="205dp"
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:background="@drawable/toeatmainicon"
             android:text="냉장고 01" />
+
         <Button
             android:id="@+id/langjango02"
             android:layout_width="210dp"
-            android:layout_height="260dp"
+            android:layout_height="205dp"
             android:layout_marginStart="200dp"
             android:layout_marginTop="0dp"
             android:background="@drawable/toeatmainicon"
             android:text="냉장고 02" />
+
         <Button
             android:id="@+id/langjango03"
             android:layout_width="210dp"
-            android:layout_height="260dp"
+            android:layout_height="205dp"
             android:layout_marginStart="0dp"
             android:layout_marginTop="240dp"
             android:background="@drawable/toeatmainicon"
             android:text="냉장고 03" />
+
         <Button
             android:id="@+id/langjango04"
             android:layout_width="210dp"
-            android:layout_height="260dp"
+            android:layout_height="205dp"
             android:layout_marginStart="200dp"
             android:layout_marginTop="240dp"
             android:background="@drawable/toeatmainicon"
             android:text="냉장고 04" />
+
         <Button
             android:id="@+id/langjango05"
             android:layout_width="210dp"
-            android:layout_height="260dp"
+            android:layout_height="205dp"
             android:layout_marginStart="0dp"
             android:layout_marginTop="480dp"
             android:background="@drawable/toeatmainicon"
             android:text="냉장고 05" />
+
         <Button
             android:id="@+id/langjango06"
             android:layout_width="210dp"
-            android:layout_height="260dp"
+            android:layout_height="205dp"
             android:layout_marginStart="200dp"
             android:layout_marginTop="480dp"
             android:background="@drawable/toeatmainicon"
