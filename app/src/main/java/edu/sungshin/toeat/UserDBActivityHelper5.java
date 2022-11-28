@@ -16,7 +16,7 @@ import java.io.OutputStream;
 
 public class UserDBActivityHelper5 extends SQLiteOpenHelper {
     private static String DB_PATH = "";
-    private static String DB_NAME ="FoodDB5.db";  //사용자DB
+    private static String DB_NAME ="Food5.db";  //사용자DB
 
     private SQLiteDatabase mDataBase;
     private Context mContext;

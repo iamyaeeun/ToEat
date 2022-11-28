@@ -8,7 +8,9 @@ import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +24,11 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -41,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
     langjango06Fragement langjango06Fragement;
     WritePostFragment writePostFragment;
     MyPostFragment myPostFragment;
+    private DatabaseReference mDatabaseRef;
+    SharedPreferences sharedpreferences;
+    public static final String mypreference = "mytoeat";
+    public static final String Email = "emailKey";
+    public static final String PassWord = "passWordKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
         langjango06Fragement=new langjango06Fragement();
         writePostFragment=new WritePostFragment();
         myPostFragment=new MyPostFragment();
+        mDatabaseRef= FirebaseDatabase.getInstance().getReference("ToEat");
+        sharedpreferences = getSharedPreferences(mypreference, Context.MODE_PRIVATE);
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -77,14 +91,12 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-        /*
-        FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-        if(user==null){
+
+        if(!sharedpreferences.contains(Email)||!sharedpreferences.contains(PassWord)){
             Intent intent=new Intent(MainActivity.this,LoginActivity.class);
             startActivity(intent);
             finish();
         }
-        */
     }
 
     public void onFragmentChanged(int index){
@@ -106,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
     public void startAlarm(Calendar c, String foodName){
         AlarmManager alarmManager=(AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent=new Intent(this,AlertReceiver.class);
-        intent.putExtra("food",foodName);
         PendingIntent pendingIntent=PendingIntent.getBroadcast(this,1,intent,PendingIntent.FLAG_MUTABLE);
 
         c.set(Calendar.DAY_OF_MONTH,c.get(Calendar.DAY_OF_MONTH)-3);

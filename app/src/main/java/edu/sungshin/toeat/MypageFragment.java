@@ -1,6 +1,8 @@
 package edu.sungshin.toeat;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +21,11 @@ public class MypageFragment extends Fragment {
     Button myPost,logout,withdrawal;
     TextView myEmail;
     String email;
+    SharedPreferences sharedpreferences;
+    MainActivity activity;
+    public static final String mypreference = "mytoeat";
+    public static final String Email = "emailKey";
+    public static final String PassWord = "passWordKey";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -28,6 +35,8 @@ public class MypageFragment extends Fragment {
         logout=rootView.findViewById(R.id.logout);
         withdrawal=rootView.findViewById(R.id.withdrawal);
 
+        activity=(MainActivity)getActivity();
+        sharedpreferences = activity.getSharedPreferences(mypreference, Context.MODE_PRIVATE);
         user=FirebaseAuth.getInstance().getCurrentUser();
         email=user.getEmail();
         myEmail.setText(email);
@@ -49,6 +58,11 @@ public class MypageFragment extends Fragment {
                 Intent intent=new Intent(getActivity(),LoginActivity.class);
                 startActivity(intent);
                 getActivity().finish();
+
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.remove(Email);
+                editor.remove(PassWord);
+                editor.commit();
             }
         });
 

@@ -3,8 +3,12 @@ package edu.sungshin.toeat;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +27,11 @@ public class RegisterActivity extends AppCompatActivity {
     private DatabaseReference mDatabaseRef;
     private EditText mEtEmail,mEtPwd;
     private Button mBtnRegister;
+    SharedPreferences sharedpreferences;
+    public static final String mypreference = "mytoeat";
+    public static final String Email = "emailKey";
+    public static final String PassWord = "passWordKey";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,9 +39,13 @@ public class RegisterActivity extends AppCompatActivity {
 
         mFirebaseAuth=FirebaseAuth.getInstance();
         mDatabaseRef= FirebaseDatabase.getInstance().getReference("ToEat");
+        sharedpreferences = getSharedPreferences(mypreference, Context.MODE_PRIVATE);
 
+        InputFilter[] filters=new InputFilter[]{inputFilter};
         mEtEmail=findViewById(R.id.et_email);
+        mEtEmail.setFilters(filters);
         mEtPwd=findViewById(R.id.et_pwd);
+        mEtPwd.setFilters(filters);
         mBtnRegister=findViewById(R.id.btn_register);
         mBtnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +65,13 @@ public class RegisterActivity extends AppCompatActivity {
 
                             mDatabaseRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
 
+                            String e = account.getEmailId();
+                            String p = account.getPassword();
+                            SharedPreferences.Editor editor = sharedpreferences.edit();
+                            editor.putString(Email, e);
+                            editor.putString(PassWord, p);
+                            editor.commit();
+
                             Toast.makeText(RegisterActivity.this,"회원가입에 성공하셨습니다",Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(RegisterActivity.this,LoginActivity.class);
                             startActivity(intent);
@@ -64,4 +84,15 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
+
+    InputFilter inputFilter=new InputFilter() {
+        @Override
+        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+            if(source.toString().matches("^[0-9a-zA-Z@\\.\\_\\-]+$")){
+                return source;
+            }else{
+                return "";
+            }
+        }
+    };
 }

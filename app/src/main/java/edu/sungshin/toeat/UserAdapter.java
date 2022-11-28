@@ -22,7 +22,7 @@ public class UserAdapter {
     private Context mContext;
     private static SQLiteDatabase mDb;
     private UserDBActivityHelper mDbHelper;
-    private String tableName="FoodDB";
+    private String tableName="food1";
 
     public UserAdapter(Context context)   //다른 클래스에서 Activity를 Context를 활용해 호출
     {
@@ -74,12 +74,12 @@ public class UserAdapter {
         value.put("amount",amount);
         value.put("market",market);
         value.put("memo",memo);
-        mDb.insert("FoodDB",null,value);  //사용자 DB에 사용자값 insert
+        mDb.insert("food1",null,value);  //사용자 DB에 사용자값 insert
     }
 
     public void delete(String foodName){
         mDb=mDbHelper.getWritableDatabase();
-        mDb.delete("FoodDB","foodName=?",new String[]{String.valueOf(foodName)});  //사용자 DB에 사용자값 delete
+        mDb.delete("food1","foodName=?",new String[]{String.valueOf(foodName)});  //사용자 DB에 사용자값 delete
 
         ArrayList<Food> foodList= getTableData();
 
@@ -93,7 +93,7 @@ public class UserAdapter {
         value.put("amount",amount);
         value.put("market",market);
         value.put("memo",memo);
-        mDb.update("FoodDB",value,"foodName=?",new String[]{String.valueOf(foodName)});
+        mDb.update("food1",value,"foodName=?",new String[]{String.valueOf(foodName)});
     }
 
     public ArrayList getTableData(){
