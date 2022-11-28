@@ -3,8 +3,12 @@ package edu.sungshin.toeat;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +24,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
+    SharedPreferences sharedpreferences;
+    public static final String mypreference = "mytoeat";
+    public static final String Email = "emailKey";
+    public static final String PassWord = "passWordKey";
     private FirebaseAuth mFirebaseAuth;
     private DatabaseReference mDatabaseRef;
     private EditText mEtEmail,mEtPwd;
@@ -31,10 +39,13 @@ public class LoginActivity extends AppCompatActivity {
 
         mFirebaseAuth=FirebaseAuth.getInstance();
         mDatabaseRef= FirebaseDatabase.getInstance().getReference("ToEat");
+        sharedpreferences = getSharedPreferences(mypreference, Context.MODE_PRIVATE);
 
+        InputFilter[] filters=new InputFilter[]{inputFilter};
         mEtEmail=findViewById(R.id.et_email);
+        mEtEmail.setFilters(filters);
         mEtPwd=findViewById(R.id.et_pwd);
-
+        mEtPwd.setFilters(filters);
         Button btn_login=findViewById(R.id.btn_login);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,9 +58,13 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
-                            String id=user.getUid();
-                            Log.d("MyTAG",id);
+                            String e = strEmail;
+                            String p = strPwd;
+                            SharedPreferences.Editor editor = sharedpreferences.edit();
+                            editor.putString(Email, e);
+                            editor.putString(PassWord, p);
+                            editor.commit();
+
                             Intent intent=new Intent(LoginActivity.this,MainActivity.class);
                             startActivity(intent);
                             finish();
@@ -71,4 +86,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    InputFilter inputFilter=new InputFilter() {
+        @Override
+        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+            if(source.toString().matches("^[0-9a-zA-Z@\\.\\_\\-]+$")){
+                return source;
+            }else{
+                return "";
+            }
+        }
+    };
 }

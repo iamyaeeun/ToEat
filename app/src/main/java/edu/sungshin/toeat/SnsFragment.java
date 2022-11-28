@@ -1,5 +1,7 @@
 package edu.sungshin.toeat;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -37,10 +39,10 @@ public class SnsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_sns, container, false);
         postAdd = rootView.findViewById(R.id.plusBtn);
-
         user= FirebaseAuth.getInstance().getCurrentUser();
         comList=new ArrayList<>();
         db = FirebaseFirestore.getInstance();
+
         db.collection("posts")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

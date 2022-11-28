@@ -7,10 +7,23 @@
     android:orientation="vertical"
     tools:context=".langjango04Fragement">
 
+    <TextView
+        android:id="@+id/foodEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FFB200"
+        android:text="식품 정보 등록"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:gravity="center"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="670dp"
+        android:layout_below="@+id/foodEmpty"/>
 
     <Button
         android:id="@+id/foodAddButton"
