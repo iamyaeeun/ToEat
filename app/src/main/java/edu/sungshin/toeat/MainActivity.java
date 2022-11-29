@@ -121,8 +121,8 @@ public class MainActivity extends AppCompatActivity {
         PendingIntent pendingIntent=PendingIntent.getBroadcast(this,1,intent,PendingIntent.FLAG_MUTABLE);
 
         c.set(Calendar.DAY_OF_MONTH,c.get(Calendar.DAY_OF_MONTH)-3);
-        c.set(Calendar.HOUR_OF_DAY,1);
-        c.set(Calendar.MINUTE,41);
+        c.set(Calendar.HOUR_OF_DAY,17);
+        c.set(Calendar.MINUTE,18);
         c.set(Calendar.SECOND,30);
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),pendingIntent);

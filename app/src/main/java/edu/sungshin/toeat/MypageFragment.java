@@ -75,6 +75,11 @@ public class MypageFragment extends Fragment {
                 Intent intent=new Intent(getActivity(),LoginActivity.class);
                 startActivity(intent);
                 getActivity().finish();
+
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.remove(Email);
+                editor.remove(PassWord);
+                editor.commit();
             }
         });
 
