@@ -33,8 +33,8 @@
         android:id="@+id/plusBtn"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="280dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginStart="330dp"
+        android:layout_marginTop="670dp"
         android:background="@drawable/plus" />
 
 </RelativeLayout>
